@@ -4,6 +4,9 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.ltp.javagram.validation.Age;
+import com.ltp.javagram.validation.Username;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
@@ -18,6 +21,7 @@ public class User {
     private String lastName;
     @NotBlank(message = "User name cannot be blank")
     @Size(min = 7, message = "User name is too short")
+    @Username(message = "Cannot contain special characters or uppercase characters")
     private String userName;
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email is invalid")
