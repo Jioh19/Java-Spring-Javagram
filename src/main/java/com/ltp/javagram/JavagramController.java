@@ -25,6 +25,8 @@ public class JavagramController {
     @PostMapping("/submitItem")
     public String handleSubmit(@Valid User user, BindingResult result) {
         System.out.println("Has errors?: " + result.hasErrors());
+        if (user.getFirstName().equals(user.getLastName()))
+            result.rejectValue("lastName", "", "Please enter valid data");
         if (result.hasErrors()) {
             return "sign-up";
         }

@@ -24,6 +24,7 @@ public class User {
     private String email;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past(message = "Date of birth must be in the past")
+    @Age(message = "Must be at least 18")
     private Date dateOfBirth;
 
     public User(String firstName, String lastName, String userName, String email, Date dateOfBirth) {
